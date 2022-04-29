@@ -13,11 +13,11 @@
 // limitations under the License.
 
 import {useTheme} from '@fluentui/react'
-import ChevronRightIcon from '@mdi/svg/svg/chevron-right.svg'
-import CloseIcon from '@mdi/svg/svg/close.svg'
 import {CSSProperties, FC, memo, useState} from 'react'
 import {Handle, NodeProps} from 'react-flow-renderer'
-import NodeIcon from './assets/icons/ros_logo.svg'
+import NodeIcon from 'react-svg-loader!./assets/icons/ros_logo.svg'
+import ChevronRightIcon from 'react-svg-loader!@mdi/svg/svg/chevron-right.svg'
+import CloseIcon from 'react-svg-loader!@mdi/svg/svg/close.svg'
 import Icon from './foxglove/Icon'
 
 const normalOpacity = 0.25

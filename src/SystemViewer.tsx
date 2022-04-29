@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {useTheme} from '@fluentui/react'
-import {memo, ReactNode, useEffect, useState} from 'react'
+import {CSSProperties, memo, ReactNode, useEffect, useState} from 'react'
 import ReactFlow, {
   Background,
   Edge,
@@ -24,7 +24,7 @@ import ReactFlow, {
 } from 'react-flow-renderer'
 import {initialElements} from './initial-elements'
 import {createGraphLayout} from './layout'
-import './layouting.css'
+// import './layouting.css'
 import RosNode from './RosNode'
 import RosTopic from './RosTopic'
 import {SystemViewToolbar} from './SystemViewToolbar'
@@ -35,6 +35,15 @@ import {getPeerNodeIds, isEdge, isRosNode, isRosTopic} from './utils/utils'
 const nodeTypes: NodeTypesType = {
   rosNode: RosNode as unknown as ReactNode,
   rosTopic: RosTopic as unknown as ReactNode,
+}
+
+const ReactFlowStyle: CSSProperties = {
+  flexGrow: 1,
+  position: 'relative',
+  // position: "absolute",
+  right: '10px',
+  top: '10px',
+  zIndex: 10,
 }
 
 export const SystemViewer = memo(() => {
@@ -174,8 +183,11 @@ export const SystemViewer = memo(() => {
       .catch((err) => console.error(err))
   }
 
+  console.log('SystemViewer')
+  console.log(elements)
+
   return (
-    <div className="layoutflow">
+    <div style={ReactFlowStyle}>
       <ReactFlow
         elements={elements}
         snapToGrid={true}

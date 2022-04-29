@@ -1,21 +1,30 @@
 import type {MessageEvent} from '@foxglove/studio'
 import {PanelExtensionContext, RenderState} from '@foxglove/studio'
-import {CSSProperties, useEffect, useLayoutEffect, useState} from 'react'
+//import {CSSProperties, useEffect, useLayoutEffect, useState} from 'react'
+import {useEffect, useLayoutEffect, useState} from 'react'
 import ReactDOM from 'react-dom'
 import {ReactFlowProvider} from 'react-flow-renderer'
 import processNodeEventMessageEvent from './process-node-message-event'
 import {SystemViewer} from './SystemViewer'
-import toGraph from './to-graph'
+//import toGraph from './to-graph'
 import {getFramesBeforeTime, getTimeFromNumber} from './utils/time'
 import type {Node, PubSub} from './__types__/RosEntities'
 import type RosStdMsgString from './__types__/RosStdMsgsString'
 import type Statistics from './__types__/Statistics'
 
-//import PanelToolbar from "@foxglove/studio-base/components/PanelToolbar";
+//import PanelToolbar from "@foxglove/studio-base/src/components/PanelToolbar";
 //import helpContent from "./index.help.md";
 
-const scrollableDiv: CSSProperties = {overflowY: 'auto'}
-const displayStyle: CSSProperties = {display: 'block', whiteSpace: 'pre-wrap'}
+const MyReactFlowProvider: React.VoidFunctionComponent = () => {
+  console.log('MyReactFlowProvider')
+  // @ ts-ignore
+  return (
+    <ReactFlowProvider>
+      {' '}
+      <SystemViewer />{' '}
+    </ReactFlowProvider>
+  )
+}
 
 function SystemViewerPanel({context}: {context: PanelExtensionContext}): JSX.Element {
   const [renderDone, setRenderDone] = useState<(() => void) | undefined>()
@@ -85,50 +94,7 @@ function SystemViewerPanel({context}: {context: PanelExtensionContext}): JSX.Ele
 
   return (
     <>
-      <ReactFlowProvider>
-        <SystemViewer />
-      </ReactFlowProvider>
-
-      <div style={scrollableDiv}>
-        <h1>System Viewer</h1>
-        <h2>Nodes</h2>
-        <ul>
-          {nodes.map((node) => (
-            <li key={node.name}>
-              {node.name}
-              <br />
-              Publishers:
-              <ul>
-                {node.publisherIds.map((id) => (
-                  <li key={id}>{id}</li>
-                ))}
-              </ul>
-              Subscribers:
-              <ul>
-                {node.subscriptionIds.map((id) => (
-                  <li key={id}>{id}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <h2>Publishers</h2>
-        <ul>
-          {publishers.map((pub) => (
-            <li key={pub.id}>{pub.id}</li>
-          ))}
-        </ul>
-        <h2>Subscriptions</h2>
-        <ul>
-          {subscriptions.map((sub) => (
-            <li key={sub.id}>{sub.id}</li>
-          ))}
-        </ul>
-        <h2>Output</h2>
-        <code style={displayStyle}>
-          {JSON.stringify(toGraph(nodes, publishers, subscriptions), null, 2)}
-        </code>
-      </div>
+      <MyReactFlowProvider />
     </>
   )
 }

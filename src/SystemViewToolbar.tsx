@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import ArrowLeftRightIcon from '@mdi/svg/svg/arrow-left-right.svg'
-import ArrowUpDownIcon from '@mdi/svg/svg/arrow-up-down.svg'
-import SelectionIcon from '@mdi/svg/svg/checkbox-multiple-marked-outline.svg'
-import NodeGraphIcon from '@mdi/svg/svg/graph.svg'
-import MinusIcon from '@mdi/svg/svg/minus.svg'
-import PlusIcon from '@mdi/svg/svg/plus.svg'
 import React, {CSSProperties, useState} from 'react'
 import {Elements} from 'react-flow-renderer'
-import FitviewIcon from './assets/icons/fitview.svg'
+import FitviewIcon from 'react-svg-loader!./assets/icons/fitview.svg'
+import ArrowLeftRightIcon from 'react-svg-loader!@mdi/svg/svg/arrow-left-right.svg'
+import ArrowUpDownIcon from 'react-svg-loader!@mdi/svg/svg/arrow-up-down.svg'
+import SelectionIcon from 'react-svg-loader!@mdi/svg/svg/checkbox-multiple-marked-outline.svg'
+import NodeGraphIcon from 'react-svg-loader!@mdi/svg/svg/graph.svg'
+import MinusIcon from 'react-svg-loader!@mdi/svg/svg/minus.svg'
+import PlusIcon from 'react-svg-loader!@mdi/svg/svg/plus.svg'
 import Button from './foxglove/Button'
 import Checkbox from './foxglove/Checkbox'
 import ExpandingToolbar, {ToolGroup} from './foxglove/ExpandingToolbar'

@@ -24,10 +24,10 @@ import {
   Selection,
 } from '@fluentui/react/lib/DetailsList'
 import {IRenderFunction} from '@fluentui/utilities'
-import SelectAllIcon from '@mdi/svg/svg/format-list-bulleted-square.svg'
-import SelectNoneIcon from '@mdi/svg/svg/format-list-checkbox.svg'
-import SearchIcon from '@mdi/svg/svg/magnify.svg'
 import React, {CSSProperties} from 'react'
+import SelectAllIcon from 'react-svg-loader!@mdi/svg/svg/format-list-bulleted-square.svg'
+import SelectNoneIcon from 'react-svg-loader!@mdi/svg/svg/format-list-checkbox.svg'
+import SearchIcon from 'react-svg-loader!@mdi/svg/svg/magnify.svg'
 import Icon from './foxglove/Icon'
 import {LegacyInput} from './foxglove/LegacyStyledComponents'
 import {colors} from './foxglove/sharedStyleConstants'
@@ -132,6 +132,8 @@ export class NodeList extends React.Component<Props, INodeListState> {
     const counterStyle: CSSProperties = {
       color: colors.TEXT_NORMAL,
     }
+
+    console.log('NodeList')
 
     return (
       <div>
