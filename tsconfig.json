@@ -1,10 +1,12 @@
 {
   "extends": "@foxglove/fox/tsconfig/tsconfig.json",
 
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "custom.d.ts"],
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
+    "lib": ["es5", "es6", "dom"],
+    "target": "es6",
 
     // Additional TypeScript error reporting checks are enabled by default to improve code quality.
     // Enable/disable these checks as necessary to suit your coding preferences or work with
